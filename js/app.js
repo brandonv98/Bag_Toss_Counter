@@ -2,6 +2,8 @@
 const btn = document.querySelector('#buttons');
 const teamOneScoreHTML = document.querySelector('#teamOneScore');
 const teamTwoScoreHTML = document.querySelector('#teamTwoScore');
+// Select team to throw inner HTML.
+const teamToThrowHTML = document.querySelector('#teamToThrow');
 
 let shootingTeam = true;
 
@@ -13,17 +15,30 @@ let teamTwoRoundPoints = 0;
 let teamPointRound = 0;
 let totalRoundsPlayed = 0;
 let roundCount = 0;
+// Set number of bags the team has thrown this round.
+let bagsThrownTeamTwo = 0;
+let bagsThrownTeamOne = 0;
+
 
 // Select all buttons on the page
 btn.addEventListener('click', e => {
 	const btn = e.target;
 	if (e.target.type === 'button') {
 		if (btn.name === 'teamOne') {
-			// console.log(btn.value);
-					(btn.value === '0' ? teamOneRoundPoints += 0 : console.log(teamOneRoundPoints, ' - ', teamTwoRoundPoints) );
-					(btn.value === '1' ? teamOneRoundPoints += 1 : console.log('') );
-					(btn.value === '3' ? teamOneRoundPoints += 3 : console.log('') );
+			// Add number of bags thrown
+			bagsThrownTeamTwo += 1;
+			// Team currently throwing.
+			teamToThrowHTML.innerHTML = `Team Two Throwing... Bag number ${bagsThrownTeamTwo}`;
+				// Add points if team scored.
+				(btn.value === '0' ? teamOneRoundPoints += 0 : console.log(teamOneRoundPoints, ' - ', teamTwoRoundPoints) );
+				(btn.value === '1' ? teamOneRoundPoints += 1 : console.log('') );
+				(btn.value === '3' ? teamOneRoundPoints += 3 : console.log('') );
 			} else if (btn.name === 'teamTwo') {
+				// Add number of bags thrown
+				bagsThrownTeamOne += 1;
+				// Team currently throwing.
+				teamToThrowHTML.innerHTML = `Team One Throwing... Bag number ${bagsThrownTeamOne + 1}`;
+					// Add points if team scored.
 					(btn.value === '0' ? teamTwoRoundPoints += 0 : console.log(teamOneRoundPoints, ' - ', teamTwoRoundPoints) );
 					(btn.value === '1' ? teamTwoRoundPoints += 1 : console.log('') );
 					(btn.value === '3' ? teamTwoRoundPoints += 3 : console.log('') );
@@ -35,7 +50,12 @@ btn.addEventListener('click', e => {
 	}
 });
 
-const endScore = () => {
+// Calculate end of round points.
+const endRoundScore = () => {
+	// Clear bags thrown counter to 0.
+	bagsThrownTeamTwo = 0;
+	bagsThrownTeamOne = 0;
+
 	// Find team to point.
 	if (teamOneRoundPoints >= teamTwoRoundPoints) {
 			// Calculate Points
@@ -44,7 +64,6 @@ const endScore = () => {
 		teamOne += scoreSum;
 			// Render points to page.
 		renderPoints(teamOne, teamOneScoreHTML)
-
 			
 	} else if (teamTwoRoundPoints >= teamOneRoundPoints) {
 			// Calculate Points
@@ -59,7 +78,7 @@ const endScore = () => {
 // Track number of throws in one round. //
 const roundTracker = (round) => {
 	if (round === 7) {
-		endScore();
+		endRoundScore();
 		roundCount = 0;
 		totalRoundsPlayed += 1;
 	} else {
