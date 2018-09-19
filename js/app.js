@@ -20,6 +20,19 @@ let bagsThrownTeamTwo = 0;
 let bagsThrownTeamOne = 0;
 
 
+// Disable opposing team buttons.
+const disableButtons = (parentDOMButtons, toDisable) => {
+	let childrenNodes = parentDOMButtons.children;
+	for(i = 0; i < childrenNodes.length; i++) {
+		if (childrenNodes[i].name === toDisable ) {
+				childrenNodes[i].setAttribute('disabled', 'true');		
+			} 
+			else if (childrenNodes[i].name !== toDisable) {
+					childrenNodes[i].removeAttribute('disabled');
+			}
+		}
+	}
+
 // Select all buttons on the page
 btn.addEventListener('click', e => {
 	const btn = e.target;
