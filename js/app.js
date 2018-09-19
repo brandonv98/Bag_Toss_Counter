@@ -96,7 +96,7 @@ const roundTracker = (round) => {
 		// Clear bags thrown counter to 0.
 		bagsThrownTeamTwo = 0;
 		bagsThrownTeamOne = 0;
-		// Calu end score.
+		// Calc end score.
 		endRoundScore();
 		roundCount = 0;
 		totalRoundsPlayed += 1;
