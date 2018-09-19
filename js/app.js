@@ -47,6 +47,8 @@ btn.addEventListener('click', e => {
 				(btn.value === '0' ? teamOneRoundPoints += 0 : console.log(teamOneRoundPoints, ' - ', teamTwoRoundPoints) );
 				(btn.value === '1' ? teamOneRoundPoints += 1 : console.log('') );
 				(btn.value === '3' ? teamOneRoundPoints += 3 : console.log('') );
+				//Disable buttons
+				disableButtons(btn.parentNode, 'teamOne');			
 			} else if (btn.name === 'teamTwo') {
 				// Add number of bags thrown
 				bagsThrownTeamOne += 1;
@@ -56,6 +58,8 @@ btn.addEventListener('click', e => {
 					(btn.value === '0' ? teamTwoRoundPoints += 0 : console.log(teamOneRoundPoints, ' - ', teamTwoRoundPoints) );
 					(btn.value === '1' ? teamTwoRoundPoints += 1 : console.log('') );
 					(btn.value === '3' ? teamTwoRoundPoints += 3 : console.log('') );
+					// Disable buttons
+					disableButtons(btn.parentNode, 'teamTwo');
 			} else {
 					console.log('Missed');
 			}
