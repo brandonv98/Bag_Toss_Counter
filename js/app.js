@@ -23,6 +23,7 @@ let bagsThrownTeamOne = 0;
 // Select all buttons on the page
 btn.addEventListener('click', e => {
 	const btn = e.target;
+	roundTracker(roundCount);
 	if (e.target.type === 'button') {
 		if (btn.name === 'teamOne') {
 			// Add number of bags thrown
@@ -37,7 +38,7 @@ btn.addEventListener('click', e => {
 				// Add number of bags thrown
 				bagsThrownTeamOne += 1;
 				// Team currently throwing.
-				teamToThrowHTML.innerHTML = `Team One Throwing... Bag number ${bagsThrownTeamOne + 1}`;
+				teamToThrowHTML.innerHTML = `Team One Throwing... Bag number ${bagsThrownTeamOne}`;
 					// Add points if team scored.
 					(btn.value === '0' ? teamTwoRoundPoints += 0 : console.log(teamOneRoundPoints, ' - ', teamTwoRoundPoints) );
 					(btn.value === '1' ? teamTwoRoundPoints += 1 : console.log('') );
@@ -46,16 +47,13 @@ btn.addEventListener('click', e => {
 					console.log('Missed');
 			}
 			// Track rounds thrown
-			roundTracker(roundCount);
+			
 	}
 });
 
 // Calculate end of round points.
 const endRoundScore = () => {
-	// Clear bags thrown counter to 0.
-	bagsThrownTeamTwo = 0;
-	bagsThrownTeamOne = 0;
-
+	
 	// Find team to point.
 	if (teamOneRoundPoints >= teamTwoRoundPoints) {
 			// Calculate Points
@@ -78,6 +76,10 @@ const endRoundScore = () => {
 // Track number of throws in one round. //
 const roundTracker = (round) => {
 	if (round === 7) {
+		// Clear bags thrown counter to 0.
+		bagsThrownTeamTwo = 0;
+		bagsThrownTeamOne = 0;
+		// Calu end score.
 		endRoundScore();
 		roundCount = 0;
 		totalRoundsPlayed += 1;
