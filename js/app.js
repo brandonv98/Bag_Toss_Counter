@@ -4,6 +4,9 @@ const teamOneScoreHTML = document.querySelector('#teamOneScore');
 const teamTwoScoreHTML = document.querySelector('#teamTwoScore');
 // Select team to throw inner HTML.
 const teamToThrowHTML = document.querySelector('#teamToThrow');
+// Select arrow in h2 team titles
+// const teamCurrentThrow = document.querySelectorAll('.team--section > h2 > span');
+
 
 let shootingTeam = true;
 
@@ -23,22 +26,28 @@ let bagsThrownTeamOne = 0;
 // Disable opposing team buttons.
 const disableButtons = (parentDOMButtons, toDisable) => {
 	let childrenNodes = parentDOMButtons.children;
+	console.log(childrenNodes, toDisable);
 	for(i = 0; i < childrenNodes.length; i++) {
 		if (childrenNodes[i].name === toDisable ) {
 				childrenNodes[i].setAttribute('disabled', 'true');		
+				// console.log(childrenNodes[i]);
 			} 
 			else if (childrenNodes[i].name !== toDisable) {
 					childrenNodes[i].removeAttribute('disabled');
+					// console.log(childrenNodes[i]);
 			}
 		}
 	}
 
 // Select all buttons on the page
 btn.addEventListener('click', e => {
-	const btn = e.target;
 	roundTracker(roundCount);
+	const btn = e.target;
+	
 	if (e.target.type === 'button') {
 		if (btn.name === 'teamOne') {
+			// Display shooting team.
+			// teamCurrentThow[1].style.display = 'inline-block';
 			// Add number of bags thrown
 			bagsThrownTeamTwo += 1;
 			// Team currently throwing.
@@ -50,6 +59,8 @@ btn.addEventListener('click', e => {
 				//Disable buttons
 				disableButtons(btn.parentNode, 'teamOne');			
 			} else if (btn.name === 'teamTwo') {
+				// Display shooting team.
+				// teamCurrentThow[0].style.display = 'inline-block';
 				// Add number of bags thrown
 				bagsThrownTeamOne += 1;
 				// Team currently throwing.
