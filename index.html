@@ -9,32 +9,67 @@
 </head>
 <body>
 
-      <div id="buttons">
+      <div id="buttons" class="buttons" style="display: none;">
             <!-- <div class="team--section" name="teamOne"> -->
-                  <h2>Team One 
-                        <span style="display: none;">&#171;</span>
+                  <h2 id="teamOneName">Team One 
+                        <!-- <span style="display: none;">&#171;</span> -->
                   </h2>
                   <!-- <div class="team--section--buttons"> -->
+                  <div class="scoreBtn">
                         <button value="1" name="teamOne" type="button" id="board">Board</button>
                         <button value="3" name="teamOne" type="button" id="hole">Hole</button>
                         <button value="0" name="teamOne" type="button" id="miss">Miss 1</button>
+                        <!-- Correct into new div -->
+                  </div>
+                  <div class="corrector" id="one">
+                        <button value="-1" name="teamOneCMin" type="button" id="minOne">Corrector (- 1 pt)</button>
+                        <button value="1" name="teamOneCPlus" type="button" id="plusOne">Corrector (+ 1 pt)</button>
+                  </div>
                   <!-- </div> -->
                   <p id="score">Team One Score : <span id="teamOneScore">0</span></p>
             <!-- </div> -->
          <br>
          <!-- <div class="team--section" name="teamTwo"> -->
-                  <h2>Team Two 
+                  <h2 id="teamTwoName">Team Two 
                         <span style="display:none;">&#171;</span>
                   </h2>
                   <!-- <div class="team--section--buttons"> -->
+                  <div class="scoreBtn">
                         <button value="1" name="teamTwo" type="button" id="board">Board</button>
                         <button value="3" name="teamTwo" type="button" id="hole">Hole</button>
                         <button value="0" name="teamTwo" type="button" id="miss">Miss 2</button>
+                        <!-- Correct Into new div -->
+                  </div>
+                  <div class="corrector" id="two">
+                        <button value="-1" name="teamTwoCMin" type="button" id="minOne">Corrector (- 1 pt)</button>
+                        <button value="1" name="teamTwoCPlus" type="button" id="plusOne">Corrector (+ 1 pt)</button>
+                  </div>
                   <!-- </div> -->
                   <p id="score">Team Two Score : <span id="teamTwoScore">0</span></p>
             <!-- </div> -->
          </div>
-   <h1 id="teamToThrow">Team One Starts</h1>
+   <h1 class="dialogue" id="teamToThrow">Team One Starts</h1>
+
+   <!-- team Form  -->
+   <!-- <div id="team">Team Names</div> -->
+
+   <div id="teamForm">
+   
+     <h1>Team Names</h1>
+     <small>Team One Will Start The Game</small>
+     
+     <form action="#">
+       <input id="teamOne" placeholder="Team One (1)" type="text" required value=""/>
+       <input id="teamTwo" placeholder="Team Two (2)" type="text" required />
+       <!-- <input placeholder="Subject" type="text" required /> -->
+       <!-- <textarea placeholder="Comment"></textarea> -->
+       <input class="formBtnSubmit" type="submit" />
+       <input class="formBtn" type="reset" />
+     </form>
+   </div>
+
+   <script src="./js/teamNameForm.js"></script>
    <script src="./js/app.js"></script>
+   
 </body>
 </html>
