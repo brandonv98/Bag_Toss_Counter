@@ -29,6 +29,7 @@ submit.addEventListener('click', (e) => {
 
       teamFormBox.setAttribute('style', 'display: none');
       buttons.removeAttribute('style', 'display: none');
+      // debugger; // For debugging // 
    } else {
       console.log("Error - Char length needs to be greater than 1");
    }
