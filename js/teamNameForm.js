@@ -14,7 +14,7 @@ const teamToThrowHTML = document.querySelector('#teamToThrow');
 // console.log(teamOneName);
 
  
-
+// Team name form handling.
 submit.addEventListener('click', (e) => {
    e.preventDefault();
    let value = e;
