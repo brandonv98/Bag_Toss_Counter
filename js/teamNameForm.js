@@ -19,7 +19,16 @@ let teamTwoName = document.querySelector('#teamTwoName');
 
 const teamToThrowHTML = document.querySelector('#teamToThrow');
 
- 
+const nodeConfig = (f) => { // Traverse the DOM to select required nodes. 
+   const scoreButtons = document.querySelectorAll('.scoreBtn');
+   console.log(scoreButtons);
+   const exportNodes = {
+      scoreButton: scoreButtons,
+   };
+   return exportNodes;
+};
+const nodes = nodeConfig(); // Save our config nodes & methods.
+
 // Team name form handling.
 submit.addEventListener('click', (e) => {
    e.preventDefault();
