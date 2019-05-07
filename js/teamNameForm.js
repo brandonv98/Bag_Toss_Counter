@@ -20,10 +20,11 @@ let teamTwoName = document.querySelector('#teamTwoName');
 const teamToThrowHTML = document.querySelector('#teamToThrow');
 
 const nodeConfig = (f) => { // Traverse the DOM to select required nodes. 
-   const scoreButtons = document.querySelectorAll('.scoreBtn');
-   console.log(scoreButtons);
+   const teamOneButtons = document.querySelectorAll('.scoreBtn .btnTeamOne');
+   const teamTwoButtons = document.querySelectorAll('.scoreBtn .btnTeamTwo');
    const exportNodes = {
-      scoreButton: scoreButtons,
+      teamOneButton: teamOneButtons,
+      teamTwoButton: teamTwoButtons,
    };
    return exportNodes;
 };
@@ -50,9 +51,9 @@ submit.addEventListener('click', (e) => {
       teamToThrowHTML.innerHTML = teamOneNameVal + ' Starts the game...';
 
       // Append color values to node.
-      const teamOneBtns = teamOneScoreBtn[0].firstElementChild;
-      // console.log(teamOneScoreBtn.length, teamOneScoreBtn[0].nextElementSibling, teamOneScoreBtn[0].firstElementChild);
-      teamBtnColorChange(teamOneBtns, teamOneColorVal);
+      teamBtnColorChange(nodes.teamOneButton, teamOneColorVal);
+      teamBtnColorChange(nodes.teamTwoButton, teamTwoColorVal);
+
       // teamFormBox.setAttribute('style', 'display: none');
 
       // Hide form.
@@ -71,11 +72,11 @@ submit.addEventListener('click', (e) => {
 
 // Change btn color nodes
 const teamBtnColorChange = (team, color) => {
-   team.setAttribute('style', `background-color: ${color}`);
+   // team.setAttribute('style', `background-color: ${color}`);
    // console.log(team.nextElementSibling);
-   for(i = 0; 2 > i; i++) {
-      team.nextElementSibling.setAttribute('style', `background-color: ${color}`);
-      console.log(team.nextElementSibling);
+   for(i = 0; team.length > i; i++) {
+      team[i].setAttribute('style', `background-color: ${color}`);
+      console.log(team[i]);
    }
 
 }
