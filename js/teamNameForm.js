@@ -7,15 +7,15 @@ const teamTwoInput = document.querySelector('#teamTwo');
 let teamOneNameVal;
 let teamTwoNameVal;
 // Team color values
-let teamOneColorVal;
-let teamTwoColorVal;
+const teamOneColorVal;
+const teamTwoColorVal;
 // Select scoreBtn node. 
 const teamOneScoreBtn = document.querySelectorAll('#teamOneScoreBtn');
 const teamTwoScoreBtn = document.querySelector('#teamTwoScoreBtn');
 
 // Team name HTML selector
-let teamOneName = document.querySelector('#teamOneName');
-let teamTwoName = document.querySelector('#teamTwoName');
+const teamOneName = document.querySelector('#teamOneName');
+const teamTwoName = document.querySelector('#teamTwoName');
 
 const teamToThrowHTML = document.querySelector('#teamToThrow');
 
@@ -34,7 +34,7 @@ const nodes = nodeConfig(); // Save our config nodes & methods.
 submit.addEventListener('click', (e) => {
    e.preventDefault();
    let value = e;
-   
+   // debugger;
    if (teamOneInput.value.length > 1 && teamTwoInput.value.length > 1) {
       // Assign name values
       teamOneNameVal = teamOneInput.value;   
