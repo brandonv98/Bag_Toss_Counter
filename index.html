@@ -15,10 +15,10 @@
                         <!-- <span style="display: none;">&#171;</span> -->
                   </h2>
                   <!-- <div class="team--section--buttons"> -->
-                  <div class="scoreBtn">
-                        <button value="1" name="teamOne" type="button" id="board">Board</button>
-                        <button value="3" name="teamOne" type="button" id="hole">Hole</button>
-                        <button value="0" name="teamOne" type="button" id="miss">Miss 1</button>
+                  <div class="scoreBtn" id="teamOneScoreBtn">
+                        <button class="btnTeamOne" value="1" name="teamOne" type="button" id="board">Board</button>
+                        <button class="btnTeamOne" value="3" name="teamOne" type="button" id="hole">Hole</button>
+                        <button class="btnTeamOne" value="0" name="teamOne" type="button" id="miss">Miss 1</button>
                         <!-- Correct into new div -->
                   </div>
                   <div class="corrector" id="one">
@@ -34,10 +34,10 @@
                         <span style="display:none;">&#171;</span>
                   </h2>
                   <!-- <div class="team--section--buttons"> -->
-                  <div class="scoreBtn">
-                        <button value="1" name="teamTwo" type="button" id="board">Board</button>
-                        <button value="3" name="teamTwo" type="button" id="hole">Hole</button>
-                        <button value="0" name="teamTwo" type="button" id="miss">Miss 2</button>
+                  <div class="scoreBtn" id="teamTwoScoreBtn">
+                        <button class="btnTeamTwo" value="1" name="teamTwo" type="button" id="board">Board</button>
+                        <button class="btnTeamTwo" value="3" name="teamTwo" type="button" id="hole">Hole</button>
+                        <button class="btnTeamTwo" value="0" name="teamTwo" type="button" id="miss">Miss 2</button>
                         <!-- Correct Into new div -->
                   </div>
                   <div class="corrector" id="two">
@@ -59,11 +59,12 @@
      <small>Team One Will Start The Game</small>
      
      <form action="#">
+       <label for="teamOne">Team One</label>
        <input id="teamOne" placeholder="Team One (1)" type="text" required value=""/>
-       <input id="teamOneColor" placeholder="Team One Color " type="text" required value=""/>
-
-       <input id="teamTwo" placeholder="Team Two (2)" type="text" required />
-       <input id="teamTwo" placeholder="Team Two (2)" type="text" required />
+       <input id="teamOneColor" placeholder="Team One Color value" type="text" required value=""/>
+       <label for="teamTwo">Team Two</label>
+       <input id="teamTwo" name="teamTwoName" placeholder="Team Two (2)" type="text" required />
+       <input id="teamTwoColor" placeholder="Team Two Color value" type="text" required />
        
        <input class="formBtnSubmit" type="submit" />
        <input class="formBtn" type="reset" />
